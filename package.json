@@ -1,38 +1,65 @@
 {
-  "name": "dribbble-ds-test",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "dribbble-ds-test-krn",
+	"description": "The design system for my test environment fro the Dribbble Scaling Design Systems course",
+	"version": "0.1.0",
+	"private": false,
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"dependencies": {
+		"@babel/polyfill": "^7.12.1",
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^13.5.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-scripts": "5.0.1",
+		"web-vitals": "^2.1.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.21.0",
+		"@babel/core": "^7.21.0",
+		"@babel/preset-env": "^7.20.2"
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/env",
+				{
+					"targets": {
+						"edge": "17",
+						"firefox": "60",
+						"chrome": "67",
+						"safari": "11.1"
+					},
+					"useBuiltIns": "usage",
+					"corejs": "3.6.5"
+				}
+			],
+			"@babel/preset-react"
+		]
+	}
 }
